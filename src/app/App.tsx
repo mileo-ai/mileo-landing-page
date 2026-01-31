@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Calendar, ArrowRight } from 'lucide-react';
-import mileoLogo from 'figma:asset/175cc6734661b8cdb3c135d87604d01df0cb1b1c.png';
+import mileoLogo from '@/assets/logo1.png';
 import HeroSection from '@/app/components/HeroSection';
 import IntegrationCircle from '@/app/components/IntegrationCircle';
 import VisionSection from '@/app/components/VisionSection';
@@ -51,9 +51,9 @@ export default function App() {
               <a href="#" className="text-slate-400 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
-          <div className="mt-8 text-center text-slate-400 text-sm">
+          {/* <div className="mt-8 text-center text-slate-400 text-sm">
             © 2025 Mileo. All rights reserved.
-          </div>
+          </div> */}
         </div>
       </footer>
     </div>

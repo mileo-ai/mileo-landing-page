@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, AlertCircle, Phone, Cloud, Calendar, MessageSquare, Mail, Video } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import mileoLogo from 'figma:asset/175cc6734661b8cdb3c135d87604d01df0cb1b1c.png';
+import mileoLogo from '@/assets/logo.png';
 
 // Animated stars/particles in the background
 const AnimatedBackground = () => {
@@ -49,19 +49,19 @@ const AnimatedBackground = () => {
 // Three-state animated demo
 const AnimatedDemo = () => {
   const [animationState, setAnimationState] = useState<'followup' | 'integration' | 'incall'>('followup');
-  
+
   useEffect(() => {
     // Cycle through animation states
     const timer1 = setTimeout(() => setAnimationState('integration'), 5000);
     const timer2 = setTimeout(() => setAnimationState('incall'), 9000);
     const timer3 = setTimeout(() => setAnimationState('followup'), 13000);
-    
+
     const interval = setInterval(() => {
       setAnimationState('followup');
       setTimeout(() => setAnimationState('integration'), 5000);
       setTimeout(() => setAnimationState('incall'), 9000);
     }, 17000);
-    
+
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -71,11 +71,11 @@ const AnimatedDemo = () => {
   }, []);
 
   const integrations = [
-    { name: 'Slack', Icon: MessageSquare, color: 'from-purple-400 to-pink-500', startPos: { x: -150, y: -100 } },
-    { name: 'Jira', Icon: Cloud, color: 'from-blue-400 to-blue-600', startPos: { x: 150, y: -120 } },
-    { name: 'Salesforce', Icon: Cloud, color: 'from-blue-500 to-cyan-500', startPos: { x: -180, y: 80 } },
-    { name: 'Gmail', Icon: Mail, color: 'from-red-400 to-orange-500', startPos: { x: 160, y: 100 } },
-    { name: 'Zoom', Icon: Video, color: 'from-blue-400 to-indigo-500', startPos: { x: 0, y: -150 } },
+    { name: 'Slack', icon: 'https://www.vectorlogo.zone/logos/slack/slack-icon.svg', startPos: { x: -150, y: -100 } },
+    { name: 'Jira', icon: 'https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-icon.svg', startPos: { x: 150, y: -120 } },
+    { name: 'Salesforce', icon: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg', startPos: { x: -180, y: 80 } },
+    { name: 'Gmail', icon: 'https://www.vectorlogo.zone/logos/google_gmail/google_gmail-icon.svg', startPos: { x: 160, y: 100 } },
+    { name: 'Zoom', icon: 'https://www.vectorlogo.zone/logos/zoomjs/zoomjs-icon.svg', startPos: { x: 0, y: -150 } },
   ];
 
   return (
@@ -198,16 +198,23 @@ const AnimatedDemo = () => {
                 <motion.div
                   animate={{
                     scale: [1, 1.05, 1],
-                    boxShadow: [
-                      '0 0 0 0 rgba(139, 195, 74, 0)',
-                      '0 0 0 40px rgba(139, 195, 74, 0.1)',
-                      '0 0 0 0 rgba(139, 195, 74, 0)',
-                    ],
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                  className="w-48 h-48 rounded-3xl bg-white flex items-center justify-center shadow-2xl border-2 border-slate-200"
+                  className="w-48 h-48 flex items-center justify-center"
                 >
-                  <img src={mileoLogo} alt="Mileo" className="w-36 h-36 object-contain" />
+                  <motion.img
+                    src={mileoLogo}
+                    alt="Mileo"
+                    className="w-36 h-36 object-contain"
+                    animate={{
+                      filter: [
+                        'drop-shadow(0 0 0px rgba(139, 195, 74, 0))',
+                        'drop-shadow(0 0 50px rgba(139, 195, 74, 1))',
+                        'drop-shadow(0 0 0px rgba(139, 195, 74, 0))',
+                      ],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                  />
                 </motion.div>
               </motion.div>
 
@@ -215,19 +222,19 @@ const AnimatedDemo = () => {
               {integrations.map((integration, index) => (
                 <motion.div
                   key={integration.name}
-                  initial={{ 
-                    x: integration.startPos.x, 
+                  initial={{
+                    x: integration.startPos.x,
                     y: integration.startPos.y,
                     opacity: 0,
                     scale: 0,
                   }}
-                  animate={{ 
-                    x: 0, 
+                  animate={{
+                    x: 0,
                     y: 0,
                     opacity: [0, 1, 1, 0],
                     scale: [0, 1, 1, 0.3],
                   }}
-                  transition={{ 
+                  transition={{
                     delay: 0.5 + index * 0.15,
                     duration: 1.5,
                     ease: 'easeInOut',
@@ -235,10 +242,12 @@ const AnimatedDemo = () => {
                   className="absolute"
                   style={{ zIndex: 10 }}
                 >
-                  <div className={`w-20 h-20 rounded-2xl bg-white shadow-xl flex items-center justify-center border border-slate-200`}>
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${integration.color} flex items-center justify-center`}>
-                      <integration.Icon className="w-6 h-6 text-white" />
-                    </div>
+                  <div className={`w-20 h-20 rounded-2xl flex items-center justify-center`}>
+                    <img
+                      src={integration.icon}
+                      alt={integration.name}
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                 </motion.div>
               ))}

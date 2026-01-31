@@ -1,16 +1,16 @@
 import { motion } from 'motion/react';
-import { Cloud, Calendar, MessageSquare, Sparkles, Database, Mail, Users, BarChart } from 'lucide-react';
-import mileoLogo from 'figma:asset/175cc6734661b8cdb3c135d87604d01df0cb1b1c.png';
+import { Sparkles } from 'lucide-react';
+import mileoLogo from '@/assets/logo.png';
 
 const integrations = [
-  { name: 'Salesforce', Icon: Cloud, color: 'from-blue-400 to-blue-600', angle: 0 },
-  { name: 'Calendar', Icon: Calendar, color: 'from-red-400 to-orange-500', angle: 45 },
-  { name: 'Slack', Icon: MessageSquare, color: 'from-purple-400 to-pink-500', angle: 90 },
-  { name: 'Drive', Icon: Database, color: 'from-green-400 to-emerald-500', angle: 135 },
-  { name: 'Monday', Icon: BarChart, color: 'from-orange-400 to-red-500', angle: 180 },
-  { name: 'HubSpot', Icon: Mail, color: 'from-orange-500 to-red-600', angle: 225 },
-  { name: 'Teams', Icon: Users, color: 'from-blue-500 to-indigo-600', angle: 270 },
-  { name: 'Notion', Icon: Database, color: 'from-slate-700 to-slate-900', angle: 315 },
+  { name: 'Salesforce', icon: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg', angle: 0 },
+  { name: 'Google Calendar', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg', angle: 45 },
+  { name: 'Slack', icon: 'https://www.vectorlogo.zone/logos/slack/slack-icon.svg', angle: 90 },
+  { name: 'Google Drive', icon: 'https://www.vectorlogo.zone/logos/google_drive/google_drive-icon.svg', angle: 135 },
+  { name: 'Monday', icon: 'https://www.vectorlogo.zone/logos/monday/monday-icon.svg', angle: 180 },
+  { name: 'HubSpot', icon: 'https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg', angle: 225 },
+  { name: 'Zoom', icon: 'https://www.vectorlogo.zone/logos/zoomus/zoomus-icon.svg', angle: 270 },
+  { name: 'Notion', icon: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png', angle: 315 },
 ];
 
 export default function IntegrationCircle() {
@@ -59,16 +59,23 @@ export default function IntegrationCircle() {
             <motion.div
               animate={{
                 scale: [1, 1.05, 1],
-                boxShadow: [
-                  '0 0 0 0 rgba(139, 195, 74, 0)',
-                  '0 0 0 20px rgba(139, 195, 74, 0.1)',
-                  '0 0 0 0 rgba(139, 195, 74, 0)',
-                ],
               }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-48 h-48 rounded-3xl bg-white flex items-center justify-center shadow-2xl border-2 border-slate-200"
+              className="w-48 h-48 flex items-center justify-center"
             >
-              <img src={mileoLogo} alt="Mileo" className="w-36 h-36 object-contain" />
+              <motion.img
+                src={mileoLogo}
+                alt="Mileo"
+                className="w-36 h-36 object-contain"
+                animate={{
+                  filter: [
+                    'drop-shadow(0 0 0px rgba(139, 195, 74, 0))',
+                    'drop-shadow(0 0 50px rgba(139, 195, 74, 1))',
+                    'drop-shadow(0 0 0px rgba(139, 195, 74, 0))',
+                  ],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              />
             </motion.div>
           </motion.div>
 
@@ -98,8 +105,8 @@ export default function IntegrationCircle() {
               >
                 <motion.div
                   animate={{
-                    x: [x * 0.95, x * 1.05, x * 0.95],
-                    y: [y * 0.95, y * 1.05, y * 0.95],
+                    x: [x * 0.95 - 40, x * 1.05 - 40, x * 0.95 - 40],
+                    y: [y * 0.95 - 40, y * 1.05 - 40, y * 0.95 - 40],
                   }}
                   transition={{
                     duration: 3 + index * 0.2,
@@ -115,11 +122,13 @@ export default function IntegrationCircle() {
                   <div className="relative">
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className={`w-20 h-20 rounded-2xl bg-white shadow-lg flex items-center justify-center border border-slate-200 transition-shadow hover:shadow-xl`}
+                      className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-transform hover:scale-110`}
                     >
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${integration.color} flex items-center justify-center`}>
-                        <integration.Icon className="w-6 h-6 text-white" />
-                      </div>
+                      <img
+                        src={integration.icon}
+                        alt={integration.name}
+                        className="w-12 h-12 object-contain"
+                      />
                     </motion.div>
                     {/* Tooltip */}
                     <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
