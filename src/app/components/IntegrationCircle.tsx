@@ -173,22 +173,6 @@ export default function IntegrationCircle() {
             );
           })}
         </div>
-
-        {/* Bottom Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-slate-600">
-            And many more...{' '}
-            <a href="#" className="text-teal-600 hover:text-teal-700 font-semibold underline">
-              View all integrations
-            </a>
-          </p>
-        </motion.div>
       </div>
     </section>
   );
