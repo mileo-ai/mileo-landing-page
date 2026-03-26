@@ -6,6 +6,8 @@ import InCallAssistance from '@/app/components/InCallAssistance';
 import InstantFollowUp from '@/app/components/InstantFollowUp';
 import CTASection from '@/app/components/StatsSection';
 
+import { PopupButton } from '@typeform/embed-react';
+
 export default function App() {
   return (
     <div className="min-h-screen bg-white">
@@ -18,9 +20,12 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-slate-600 hover:text-slate-900 transition-colors">Features</a>
             <a href="#integrations" className="text-slate-600 hover:text-slate-900 transition-colors">Integrations</a>
-            <button className="px-4 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors">
+            <PopupButton 
+              id="h23VYTSf" 
+              className="px-4 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+            >
               Join Waitlist
-            </button>
+            </PopupButton>
           </nav>
         </div>
       </header>

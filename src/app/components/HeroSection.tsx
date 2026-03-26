@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Sparkles, AlertCircle, Phone, Cloud, Calendar, MessageSquare, Mail, Video } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { PopupButton } from '@typeform/embed-react';
 import mileoLogo from '@/assets/logo.png';
 
 // Animated stars/particles in the background
@@ -420,10 +421,13 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <button className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-all hover:scale-105 flex items-center gap-2 shadow-xl">
-              Request Demo
+            <PopupButton 
+              id="h23VYTSf" 
+              className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-all hover:scale-105 flex items-center gap-2 shadow-xl"
+            >
+              Join Waitlist
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </PopupButton>
             <button className="px-8 py-4 rounded-xl bg-slate-100 text-slate-900 font-semibold hover:bg-slate-200 transition-all border border-slate-300">
               Watch Video
             </button>

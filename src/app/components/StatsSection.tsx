@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { PopupButton } from '@typeform/embed-react';
 
 export default function CTASection() {
   return (
@@ -30,12 +31,18 @@ export default function CTASection() {
               Join the waitlist to get early access. We're onboarding teams in Q2 2026.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold hover:from-teal-500 hover:to-cyan-600 transition-all hover:scale-105 shadow-xl">
+              <PopupButton 
+                id="h23VYTSf" 
+                className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold hover:from-teal-500 hover:to-cyan-600 transition-all hover:scale-105 shadow-xl"
+              >
                 Join Waitlist
-              </button>
-              <button className="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all border border-white/30">
+              </PopupButton>
+              <PopupButton 
+                id="h23VYTSf" 
+                className="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all border border-white/30"
+              >
                 Schedule Demo
-              </button>
+              </PopupButton>
             </div>
             <p className="text-slate-400 text-sm mt-6">
               No credit card required · Early access for first 100 teams
