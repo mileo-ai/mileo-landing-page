@@ -46,7 +46,7 @@ export default function App() {
               <img src={mileoLogo} alt="Mileo" className="h-12 brightness-0 invert" />
             </div>
             <div className="flex gap-8">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Privacy</a>
+              <a href="/privacy_policy.html" className="text-slate-400 hover:text-white transition-colors">Privacy</a>
               <a href="#" className="text-slate-400 hover:text-white transition-colors">Terms</a>
               <a href="#" className="text-slate-400 hover:text-white transition-colors">Contact</a>
             </div>
