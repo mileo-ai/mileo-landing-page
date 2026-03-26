@@ -33,15 +33,9 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <PopupButton 
                 id="h23VYTSf" 
-                className="px-8 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold hover:from-teal-500 hover:to-cyan-600 transition-all hover:scale-105 shadow-xl"
+                className="px-16 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold hover:from-teal-500 hover:to-cyan-600 transition-all hover:scale-105 shadow-xl cursor-pointer"
               >
                 Join Waitlist
-              </PopupButton>
-              <PopupButton 
-                id="h23VYTSf" 
-                className="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all border border-white/30"
-              >
-                Schedule Demo
               </PopupButton>
             </div>
             <p className="text-slate-400 text-sm mt-6">

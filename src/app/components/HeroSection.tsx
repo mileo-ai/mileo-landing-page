@@ -423,14 +423,11 @@ export default function HeroSection() {
           >
             <PopupButton 
               id="h23VYTSf" 
-              className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-all hover:scale-105 flex items-center gap-2 shadow-xl"
+              className="px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800 transition-all hover:scale-105 flex items-center gap-2 shadow-xl cursor-pointer"
             >
               Join Waitlist
               <ArrowRight className="w-5 h-5" />
             </PopupButton>
-            <button className="px-8 py-4 rounded-xl bg-slate-100 text-slate-900 font-semibold hover:bg-slate-200 transition-all border border-slate-300">
-              Watch Video
-            </button>
           </motion.div>
         </div>
 
