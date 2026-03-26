@@ -1,13 +1,10 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Mail, Calendar, ArrowRight } from 'lucide-react';
 import mileoLogo from '@/assets/logo1.png';
 import HeroSection from '@/app/components/HeroSection';
 import IntegrationCircle from '@/app/components/IntegrationCircle';
 import VisionSection from '@/app/components/VisionSection';
 import InCallAssistance from '@/app/components/InCallAssistance';
 import InstantFollowUp from '@/app/components/InstantFollowUp';
-import StatsSection from '@/app/components/StatsSection';
+import CTASection from '@/app/components/StatsSection';
 
 export default function App() {
   return (
@@ -31,11 +28,11 @@ export default function App() {
       {/* Main Content */}
       <main className="pt-20">
         <HeroSection />
-        <IntegrationCircle />
         <VisionSection />
         <InCallAssistance />
         <InstantFollowUp />
-        <StatsSection />
+        <IntegrationCircle />
+        <CTASection />
       </main>
 
       {/* Footer */}
@@ -51,9 +48,9 @@ export default function App() {
               <a href="#" className="text-slate-400 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
-          {/* <div className="mt-8 text-center text-slate-400 text-sm">
-            © 2025 Mileo. All rights reserved.
-          </div> */}
+          <div className="mt-8 text-center text-slate-400 text-sm">
+            © 2026 Mileo. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>
