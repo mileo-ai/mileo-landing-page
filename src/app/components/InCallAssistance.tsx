@@ -28,7 +28,7 @@ export default function InCallAssistance() {
   };
 
   return (
-    <section id="features" className="relative py-32 bg-gradient-to-b from-white via-teal-50/30 to-cyan-50/30 overflow-hidden">
+    <section id="features" className="relative py-32 bg-gradient-to-b from-white via-teal-50/30 to-cyan-50/30 overflow-hidden" aria-labelledby="features-title">
       {/* Background ocean texture */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-400/10 via-cyan-400/10 to-blue-400/10"></div>
@@ -165,7 +165,7 @@ export default function InCallAssistance() {
               <span className="text-sm font-semibold">Real-Time Guidance</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 id="features-title" className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
               Get instant answers
               <br />
               <span className="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">
@@ -175,7 +175,7 @@ export default function InCallAssistance() {
 
             <p className="text-xl text-slate-600 leading-relaxed">
               When prospects raise objections or ask tough questions, our AI provides immediate, 
-              context-aware suggestions to help you navigate the conversation with confidence.
+              context-aware suggestions to help you navigate sales calls and customer conversations with confidence.
             </p>
 
             <div className="space-y-4 pt-4">

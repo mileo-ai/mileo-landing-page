@@ -40,7 +40,7 @@ Recommended action: Schedule follow-up demos focusing on Salesforce integration 
   }, [showAIResponse, typingText, fullAIText]);
 
   return (
-    <section className="relative py-32 bg-gradient-to-b from-cyan-50/30 via-blue-50/30 to-indigo-50/30 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-b from-cyan-50/30 via-blue-50/30 to-indigo-50/30 overflow-hidden" aria-labelledby="follow-up-title">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,_var(--tw-gradient-stops))] from-indigo-200/20 via-transparent to-transparent"></div>
@@ -61,7 +61,7 @@ Recommended action: Schedule follow-up demos focusing on Salesforce integration 
               <span className="text-sm font-semibold">Automated Follow-Up</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 id="follow-up-title" className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
               Never miss a
               <br />
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -71,7 +71,7 @@ Recommended action: Schedule follow-up demos focusing on Salesforce integration 
 
             <p className="text-xl text-slate-600 leading-relaxed">
               After every call, our AI automatically posts detailed summaries, action items, 
-              and insights directly to your team's Slack or Monday.com channels.
+              and insights directly to your team's Slack, Monday.com, and CRM workflows.
             </p>
 
             <div className="space-y-4 pt-4">

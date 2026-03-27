@@ -49,8 +49,7 @@ export default function App() {
             </div>
             <div className="flex gap-8">
               <a href="/privacy_policy.html" className="text-slate-400 hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Terms</a>
-              <a href="#" className="text-slate-400 hover:text-white transition-colors">Contact</a>
+              <a href="mailto:daniel@mileo.ai" className="text-slate-400 hover:text-white transition-colors">Contact</a>
             </div>
           </div>
           <div className="mt-8 text-center text-slate-400 text-sm">

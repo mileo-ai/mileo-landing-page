@@ -17,7 +17,7 @@ export default function IntegrationCircle() {
   const radius = 180;
 
   return (
-    <section id="integrations" className="relative py-32 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <section id="integrations" className="relative py-32 bg-gradient-to-b from-slate-50 to-white overflow-hidden" aria-labelledby="integrations-title">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-100/20 via-transparent to-transparent"></div>
 
@@ -34,7 +34,7 @@ export default function IntegrationCircle() {
             <Sparkles className="w-4 h-4" />
             <span className="text-sm font-semibold">Seamless Integrations</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 id="integrations-title" className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
             Works with your
             <br />
             <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
@@ -42,7 +42,7 @@ export default function IntegrationCircle() {
             </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Integrate all your internal tools and platforms seamlessly with Mileo
+            Connect Mileo to the customer success and sales tools your team already uses, from Salesforce and HubSpot to Slack, Zoom, Notion, and Google Workspace.
           </p>
         </motion.div>
 

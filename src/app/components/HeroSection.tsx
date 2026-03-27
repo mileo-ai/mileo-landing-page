@@ -352,7 +352,7 @@ const AnimatedDemo = () => {
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-labelledby="hero-title">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <div className="absolute inset-0 bg-gradient-to-t from-slate-100/20 to-transparent"></div>
@@ -397,6 +397,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            id="hero-title"
             className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900"
           >
             The memory layer for
@@ -412,8 +413,19 @@ export default function HeroSection() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl text-slate-600 leading-relaxed max-w-xl"
           >
-            Mileo is a smart in-call assistant for Customer Success Managers and Account Executives in moments that matter: renewals, churn risks, escalations.
+            Mileo is an AI sales call assistant for Customer Success Managers and Account Executives handling renewals, churn risks, escalations, and other high-stakes customer conversations.
           </motion.p>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex flex-wrap gap-3 text-sm text-slate-700"
+          >
+            <li className="rounded-full bg-slate-100 px-4 py-2">Real-time call guidance</li>
+            <li className="rounded-full bg-slate-100 px-4 py-2">Automated follow-up summaries</li>
+            <li className="rounded-full bg-slate-100 px-4 py-2">CRM and workspace integrations</li>
+          </motion.ul>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

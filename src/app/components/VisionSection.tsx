@@ -3,7 +3,7 @@ import { Lightbulb } from 'lucide-react';
 
 export default function VisionSection() {
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-32 bg-white overflow-hidden" aria-labelledby="vision-title">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-green-100/30 to-teal-100/30 rounded-full blur-3xl"></div>
@@ -27,6 +27,7 @@ export default function VisionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            id="vision-title"
             className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight"
           >
             Built on context,
@@ -44,7 +45,7 @@ export default function VisionSection() {
             Strong customer relationships are built on context, not guesswork. Every customer 
             interaction contains signals that too often get lost across tools and teams. Mileo 
             turns those scattered signals into a shared, intelligent memory that helps CSMs ask 
-            better questions and deliver better outcomes for their customers.
+            better questions, personalize follow-ups, and deliver better customer outcomes.
           </motion.p>
         </motion.div>
       </div>
