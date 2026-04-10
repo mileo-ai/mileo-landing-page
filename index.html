@@ -1,72 +1,1672 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mileo | AI Sales Call Assistant for Customer Success Teams</title>
-  <meta
-    name="description"
-    content="Mileo is an AI sales call assistant for customer success managers and account executives. Capture context, get real-time call guidance, and automate follow-ups across Slack, Salesforce, HubSpot, Zoom, and more."
-  />
-  <meta
-    name="keywords"
-    content="AI sales call assistant, customer success software, customer success AI, sales follow-up automation, call intelligence, account executive tools, customer success manager tools"
-  />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://mileo.co/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mileo — The Human Intelligence Layer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink:   #1A1410;
+    --teal:  #00B4A2;
+    --coral: #FF4D6D;
+    --amber: #F4A227;
+    --mint:  #3DD6AC;
+    --navy:  #0D1B2A;
+    --gray:  #8A8070;
+  }
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Mileo" />
-  <meta property="og:title" content="Mileo | AI Sales Call Assistant for Customer Success Teams" />
-  <meta
-    property="og:description"
-    content="Capture customer context, get in-call AI guidance, and automate follow-ups with Mileo."
-  />
-  <meta property="og:url" content="https://mileo.co/" />
-  <meta property="og:image" content="https://mileo.co/logo1.png" />
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mileo | AI Sales Call Assistant for Customer Success Teams" />
-  <meta
-    name="twitter:description"
-    content="AI-powered customer conversation intelligence for CSMs and account executives."
-  />
-  <meta name="twitter:image" content="https://mileo.co/logo1.png" />
+  html { scroll-behavior: smooth; }
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "name": "Mileo",
-          "url": "https://mileo.co/",
-          "logo": "https://mileo.co/logo1.png",
-          "email": "hi@mileo.co"
-        },
-        {
-          "@type": "WebSite",
-          "name": "Mileo",
-          "url": "https://mileo.co/",
-          "description": "AI sales call assistant for customer success teams and account executives."
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Mileo",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "url": "https://mileo.co/",
-          "description": "Mileo helps customer success managers and account executives with in-call guidance, conversation memory, and automated follow-ups."
-        }
-      ]
-    }
-  </script>
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 56px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    border: 2px solid var(--ink);
+    padding: 4px 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .nav-logo span {
+    width: 8px; height: 8px;
+    background: var(--coral);
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    border-left: 2px solid var(--ink);
+    border-right: 2px solid var(--ink);
+  }
+
+  .nav-links li {
+    border-right: 2px solid var(--ink);
+  }
+  .nav-links li:last-child { border-right: none; }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 20px;
+    height: 54px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s;
+  }
+
+  .nav-links a:hover { background: var(--ink); color: var(--cream); }
+
+  .nav-dot {
+    width: 8px; height: 8px;
+    display: inline-block;
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--ink);
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+  .btn-primary {
+    border: 2px solid var(--ink);
+    padding: 8px 22px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--coral);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+  .btn-primary:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(2px, 2px); }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .ann-bar {
+    background: var(--teal);
+    text-align: center;
+    padding: 10px 32px;
+    font-size: 13px;
+    font-weight: 400;
+    border-bottom: 2px solid var(--ink);
+  }
+  .ann-bar strong { font-weight: 700; }
+  .ann-bar a { color: var(--ink); font-weight: 700; text-decoration: underline; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 90px);
+    border-bottom: 2px solid var(--ink);
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 80px 64px 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 10px; height: 10px;
+    background: var(--teal);
+    display: inline-block;
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 5.5vw, 80px);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--gray);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero {
+    border: 2px solid var(--ink);
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+
+  .btn-hero-teal {
+    background: var(--teal);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .btn-hero-teal:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(3px, 3px); }
+
+  .btn-hero-ghost:hover { background: var(--ink); color: var(--cream); }
+
+  /* Demo window */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: #D8D0C4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* sky texture bg */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #B8C8D8 0%, #C8D4DC 40%, #D8D0C4 100%);
+  }
+
+  .demo-window {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    border: 2px solid var(--ink);
+    background: var(--cream);
+    box-shadow: 8px 8px 0 var(--ink);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s;
+  }
+  .demo-window:hover { transform: rotate(0deg); }
+
+  .demo-titlebar {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 8px 14px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .demo-dot { width: 8px; height: 8px; background: var(--teal); display: inline-block; }
+
+  .demo-body {
+    padding: 24px;
+  }
+
+  .demo-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1.5px solid #D0C8BC;
+    background: white;
+  }
+
+  .demo-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .demo-whisper {
+    background: var(--teal);
+    border: 1.5px solid var(--ink);
+    padding: 12px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .demo-whisper::before {
+    content: '◆ MILEO WHISPER';
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .demo-whisper p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .demo-suggestion {
+    background: var(--amber);
+    border: 1.5px solid var(--ink);
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+  .demo-suggestion:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(2px, 2px); }
+
+  /* Small floating window */
+  .demo-float {
+    position: absolute;
+    top: 40px;
+    left: -80px;
+    width: 180px;
+    border: 2px solid var(--ink);
+    background: var(--coral);
+    box-shadow: 5px 5px 0 var(--ink);
+    transform: rotate(2deg);
+    z-index: 3;
+  }
+  .demo-float-bar {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .demo-float-body {
+    padding: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* ── LOGOS ── */
+  .logos {
+    border-bottom: 2px solid var(--ink);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .logos-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .logo-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #A09080;
+    letter-spacing: -0.5px;
+  }
+
+  /* ── THREE COLS ── */
+  .three-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .col-card {
+    padding: 60px 48px;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+  .col-card:last-child { border-right: none; }
+
+  .col-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .col-eyebrow-dot { width: 10px; height: 10px; display: inline-block; }
+
+  .col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .col-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .btn-col {
+    border: 2px solid var(--ink);
+    padding: 12px 22px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+  .btn-teal-col { background: var(--teal); }
+  .btn-amber-col { background: var(--amber); }
+  .btn-coral-col { background: var(--coral); }
+  .btn-col:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(3px, 3px); }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 14px 0;
+    background: var(--navy);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cream);
+    padding: 0 32px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .marquee-sep { color: var(--teal); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── WHAT IS SECTION ── */
+  .what-is {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--ink);
+    min-height: 600px;
+  }
+
+  .what-left {
+    padding: 80px 64px;
+    border-right: 2px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before { content: ''; width: 24px; height: 2px; background: var(--ink); display: inline-block; }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 3.5vw, 54px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 28px;
+  }
+  .section-title em { font-style: italic; color: var(--teal); }
+
+  .section-body {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--gray);
+    max-width: 460px;
+    font-weight: 300;
+  }
+
+  .what-right {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .feature-box {
+    padding: 28px 36px;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-box:last-child { border-bottom: none; }
+
+  .feature-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.06);
+    position: absolute;
+    right: 24px;
+    top: 12px;
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+
+  .feature-icon {
+    width: 40px; height: 40px;
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  /* ── BIG QUOTE ── */
+  .big-quote {
+    padding: 100px 64px;
+    text-align: center;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .big-quote::before {
+    content: '"';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 600px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .big-quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    color: var(--cream);
+    position: relative;
+    z-index: 1;
+  }
+
+  .big-quote-text em { color: var(--teal); font-style: normal; }
+
+  .big-quote-attr {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5A6070;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HP SIMULATE ── */
+  .hp-section {
+    background: var(--navy);
+    border-bottom: 2px solid var(--ink);
+    padding: 80px 64px;
+  }
+  .hp-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .hp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3vw, 46px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .hp-sub {
+    font-size: 16px;
+    color: #5A7070;
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 560px;
+    line-height: 1.65;
+  }
+  .hp-sub em { color: var(--teal); font-style: normal; }
+  .hp-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .hp-preset {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border: 1.5px dashed rgba(0,180,162,.35);
+    color: rgba(255,255,255,.45);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all .15s;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .hp-preset:hover, .hp-preset.on {
+    border-color: var(--teal);
+    color: var(--teal);
+    background: rgba(0,180,162,.08);
+    border-style: solid;
+  }
+  .hp-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 36px;
+    align-items: stretch;
+  }
+  .hp-input {
+    flex: 1;
+    background: rgba(255,255,255,.05);
+    border: 1.5px solid rgba(255,255,255,.1);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color .15s;
+  }
+  .hp-input::placeholder { color: rgba(255,255,255,.2); }
+  .hp-input:focus { border-color: var(--teal); }
+  .hp-run {
+    padding: 14px 28px;
+    background: var(--teal);
+    color: var(--navy);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .hp-run:hover { background: #00CDB8; }
+  .hp-run.loading { opacity: .6; pointer-events: none; }
+  .hp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .hp-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .hp-card.shimmer {
+    background: linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);
+    background-size: 200% 100%;
+    animation: hpshimmer 1.3s infinite;
+    min-height: 200px;
+  }
+  @keyframes hpshimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+  .hp-card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .hp-av {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .hp-char-name { font-size: 13px; font-weight: 700; color: var(--cream); }
+  .hp-char-house { font-size: 11px; color: rgba(255,255,255,.3); }
+  .hp-sentiment {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+  .hps-excited { background: rgba(56,161,105,.15); color: #68D391; }
+  .hps-supportive { background: rgba(0,180,162,.15); color: var(--teal); }
+  .hps-cautious { background: rgba(244,162,39,.15); color: var(--amber); }
+  .hps-skeptical { background: rgba(255,77,109,.15); color: #FC8FA4; }
+  .hps-contemptuous { background: rgba(160,120,220,.15); color: #C4A0E8; }
+  .hp-card-body { padding: 14px 16px; }
+  .hp-quote {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(255,255,255,.55);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .hp-concern-lbl { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.2); margin-bottom: 5px; }
+  .hp-concern { font-size: 12px; color: rgba(255,255,255,.4); background: rgba(255,255,255,.04); border-radius: 6px; padding: 7px 10px; line-height: 1.5; }
+  .hp-summary {
+    display: none;
+    margin-top: 20px;
+    background: rgba(0,180,162,.08);
+    border: 1px solid rgba(0,180,162,.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .hp-sum-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--teal); margin-bottom: 8px; }
+  .hp-sum-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+  .hp-sum-body { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; }
+  .hp-sum-body strong { color: var(--cream); }
+
+  /* ── COMING NEXT ── */
+  .coming-next {
+    border-bottom: 2px solid var(--ink);
+    padding: 64px;
+  }
+  .cn-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .cn-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  .cn-sub {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+  }
+  .cn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 2px solid var(--ink);
+  }
+  .cn-item {
+    padding: 32px 36px;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+  .cn-item:last-child { border-right: none; }
+  .cn-status {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+  }
+  .cn-status.dev { background: #FEF6E4; border-color: var(--amber); color: #92580A; }
+  .cn-status.planned { background: var(--cream); color: var(--gray); border-color: #C5BFB4; }
+  .cn-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+  .cn-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  /* ── PERSONA SECTION ── */
+  .persona-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .persona-card {
+    padding: 60px 48px;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+  .persona-card:last-child { border-right: none; }
+
+  .persona-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--ink);
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .badge-teal { background: var(--teal); }
+  .badge-gray { background: #D0C8BC; }
+
+  .persona-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    margin-bottom: 8px;
+  }
+
+  .persona-role {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .persona-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    border-left: 4px solid var(--teal);
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  .persona-quote-neg {
+    border-left-color: #C0B8B0;
+  }
+
+  .persona-detail {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── KNOWLEDGE FLOW SECTION ── */
+  .knowledge-flow {
+    border-bottom: 2px solid var(--ink);
+  }
+
+  /* top row: text left, hub right */
+  .kf-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .kf-top-left {
+    padding: 72px 64px;
+    border-right: 2px solid var(--ink);
+  }
+
+  .kf-top-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 64px;
+    background: var(--navy);
+  }
+
+  .kf-hub {
+    text-align: center;
+  }
+
+  .kf-hub-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .kf-hub-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .kf-hub-tag {
+    display: inline-block;
+    border: 1.5px solid rgba(0,180,162,.5);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+  }
+
+  /* bottom: 4 team cards */
+  .kf-teams {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .kf-team-card {
+    padding: 44px 40px;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+
+  .kf-team-accent {
+    width: 32px;
+    height: 3px;
+    margin-bottom: 20px;
+  }
+
+  .kf-team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  .kf-team-q {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--gray);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── EARLY ACCESS SECTION ── */
+  .early-access-section {
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .early-access-header {
+    padding: 80px 64px 48px;
+    border-bottom: 2px solid var(--ink);
+    text-align: center;
+  }
+
+  .early-access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ea-col {
+    padding: 56px 64px;
+    border-right: 2px solid var(--ink);
+    position: relative;
+  }
+  .ea-col:last-child { border-right: none; }
+
+  .ea-tier {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ea-tier-dot { width: 8px; height: 8px; display: inline-block; }
+
+  .ea-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .ea-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 400px;
+  }
+
+  .ea-divider {
+    height: 2px;
+    background: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  .ea-detail {
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  .ea-detail-dot { color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .ea-cta {
+    margin-top: 36px;
+    border: 2px solid var(--ink);
+    padding: 14px 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+  .ea-cta-teal { background: var(--teal); }
+  .ea-cta:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(3px, 3px); }
+
+  /* ── FOOTER ── */
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 2px solid var(--ink);
+    background: var(--navy);
+  }
+
+  .footer-left {
+    padding: 60px 64px;
+    border-right: 2px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 6px 14px;
+    width: fit-content;
+    margin-bottom: 24px;
+  }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 32px;
+    max-width: 340px;
+    letter-spacing: -0.5px;
+  }
+
+  .footer-tagline em { color: var(--teal); font-style: normal; }
+
+  .footer-note {
+    font-size: 13px;
+    color: #5A6070;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .footer-right {
+    padding: 60px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footer-cta-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: -1px;
+    margin-bottom: 28px;
+    line-height: 1.1;
+  }
+
+  .footer-cta-big em { color: var(--teal); font-style: italic; }
+
+  .footer-bottom {
+    font-size: 11px;
+    color: #5A6070;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+
+  /* ── PULSE ANIMATION ── */
+  .pulse { animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ── TYPING CURSOR ── */
+  .cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+</style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
 
+<!-- Announcement bar -->
+<div class="ann-bar">
+  Mileo is in early access — we're building alongside our first customer success teams. <a href="#early-access">Learn more →</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a class="nav-logo" href="#" style="border:none;padding:0;gap:10px;">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="14,2 26,9 26,21 14,28 2,21 2,9" fill="#8BC34A"/>
+      <polygon points="14,2 26,9 14,16 2,9" fill="#AED65A"/>
+      <polygon points="14,16 26,9 26,21 14,28" fill="#6B9E2A"/>
+      <polygon points="14,16 2,9 2,21 14,28" fill="#7CB342"/>
+    </svg>
+    mileo
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works"><span class="nav-dot" style="background:var(--teal)"></span> How it works</a></li>
+    <li><a href="#the-vision"><span class="nav-dot" style="background:var(--coral)"></span> The vision</a></li>
+    <li><a href="#who-its-for"><span class="nav-dot" style="background:var(--amber)"></span> Who it's for</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="btn-primary" href="#early-access">Get Early Access</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-headline">
+      The <em>human</em><br>
+      factor,<br>
+      captured.
+    </h1>
+    <p class="hero-sub">
+      Every customer conversation holds signals your CRM will never capture. Mileo turns what customers say into structured intelligence your whole team can actually use.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-hero btn-hero-teal" href="#early-access">
+        ◆ Get Early Access
+      </a>
+      <a class="btn-hero btn-hero-ghost" href="#how-it-works">
+        See how it works →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Main demo window -->
+    <div class="demo-window">
+      <div class="demo-titlebar">
+        <span class="demo-dot"></span>
+        In-call context — Meridian Co.
+      </div>
+      <div class="demo-body">
+        <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;font-weight:500;">Renewal Call · Sarah Park, VP Customer Success</div>
+        <div class="demo-row">
+          <div class="demo-avatar" style="background:#E8F4F2;color:var(--teal)">JL</div>
+          <div>
+            <div style="font-size:11px;font-weight:600;margin-bottom:4px;">Jamie (CSM)</div>
+            <div style="font-size:12px;color:var(--gray);line-height:1.5;">Sarah, let's go through what the team has been doing since we last connected...</div>
+          </div>
+        </div>
+        <div class="demo-whisper">
+          <p>Sarah joined 6 weeks ago. Previous champion David flagged adoption concerns in Q3. She hasn't seen the onboarding goals doc — she's still getting context on this account.</p>
+        </div>
+        <div class="demo-row">
+          <div class="demo-avatar" style="background:#F4ECE8;color:var(--coral)">SP</div>
+          <div>
+            <div style="font-size:11px;font-weight:600;margin-bottom:4px;">Sarah (VP CS)</div>
+            <div style="font-size:12px;color:var(--gray);line-height:1.5;">Honestly, I'm still getting up to speed. I'm not sure the team is getting full value.</div>
+          </div>
+        </div>
+        <div class="demo-suggestion">
+          <span style="font-size:12px;">◆ Share team usage summary — adoption gap flagged in Q3</span>
+          <span style="font-size:11px;">USE →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Integrations strip -->
+<div class="logos">
+  <div class="logos-label">Connects with your existing stack</div>
+  <div class="logo-item">Salesforce</div>
+  <div class="logo-item">HubSpot</div>
+  <div class="logo-item">Notion</div>
+  <div class="logo-item">Zoom</div>
+  <div class="logo-item">Google Meet</div>
+</div>
+
+<!-- Single value prop -->
+<section class="three-cols" id="how-it-works" style="display:block;border-bottom:2px solid var(--ink);">
+  <div class="col-card" style="border-right:none;max-width:720px;">
+    <div class="col-eyebrow"><span class="col-eyebrow-dot" style="background:var(--teal)"></span> For Customer Success</div>
+    <h2 class="col-title">Never go blank<br>on a call again.</h2>
+    <p class="col-desc">Mileo surfaces the right context at the right moment — account history, open questions, stakeholder notes — so you walk in prepared, stay in control, and leave with everything covered.</p>
+    <a class="btn-col btn-teal-col" href="#the-vision">◆ See the full vision</a>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">The human factor, captured <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">The memory your CRM never had <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Living account intelligence <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">CSM → Product → Marketing → Sales <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">One meeting. Every team informed. <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Relationship intelligence <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">The human factor, captured <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">The memory your CRM never had <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Living account intelligence <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">CSM → Product → Marketing → Sales <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">One meeting. Every team informed. <span class="marquee-sep">◆</span></span>
+    <span class="marquee-item">Relationship intelligence <span class="marquee-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- What is Mileo -->
+<section class="what-is" id="the-vision">
+  <div class="what-left">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Everything a CSM<br>needs.<br><em>In one place.</em></h2>
+    <p class="section-body">From the moment before you join a call to the follow-up that lands in your customer's inbox — Mileo handles the work that disappears between meetings.</p>
+  </div>
+  <div class="what-right">
+    <div class="feature-box">
+      <div class="feature-num">01</div>
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="9" cy="9" r="3"/>
+          <circle cx="9" cy="9" r="7" stroke-dasharray="2 3"/>
+        </svg>
+      </div>
+      <div class="feature-title">Signal Dashboard</div>
+      <p class="feature-desc">See exactly what needs your attention today — at-risk accounts, unanswered questions, overdue follow-ups — organized by urgency, not alphabetically.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-num">02</div>
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="14" height="12" rx="1"/>
+          <line x1="2" y1="8" x2="16" y2="8"/>
+          <line x1="6" y1="2" x2="6" y2="6"/>
+          <line x1="12" y1="2" x2="12" y2="6"/>
+        </svg>
+      </div>
+      <div class="feature-title">Meeting Intelligence</div>
+      <p class="feature-desc">Prep brief before you join. Live guidance during the call. Automatic follow-up email and action items when you hang up. All three stages, handled.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-num">03</div>
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="9,2 16,9 9,16 2,9"/>
+          <circle cx="9" cy="9" r="2" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="feature-title">Simulate</div>
+      <p class="feature-desc">Before you build a feature or send a message, test it against your real customers. Mileo shows how each account would react — using their actual words from past conversations, not AI guesses.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-num">04</div>
+      <div class="feature-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="5" cy="5" r="2"/>
+          <circle cx="13" cy="5" r="2"/>
+          <circle cx="5" cy="13" r="2"/>
+          <circle cx="13" cy="13" r="2"/>
+          <line x1="7" y1="5" x2="11" y2="5"/>
+          <line x1="7" y1="13" x2="11" y2="13"/>
+          <line x1="5" y1="7" x2="5" y2="11"/>
+          <line x1="13" y1="7" x2="13" y2="11"/>
+        </svg>
+      </div>
+      <div class="feature-title">Team Intelligence</div>
+      <p class="feature-desc">One CSM meeting automatically becomes briefings for Product, Marketing, Ops, and Sales. Each team gets only what's relevant to them. No manual handoffs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Big pull quote — the core pain point -->
+<section class="big-quote">
+  <p class="big-quote-text">
+    "If there's a way to incorporate the sentiment, the behavior — <em>the human factor</em> of what the customer is saying — that's what we actually need."
+  </p>
+  <div class="big-quote-attr">Jeffrey · Customer Success Manager · Enterprise SaaS</div>
+</section>
+
+<!-- Harry Potter Simulate Demo -->
+<section class="hp-section" id="simulate-demo">
+  <div class="hp-eyebrow">✦ Try Simulate</div>
+  <h2 class="hp-title">What would your customers think?<br>Let's ask Hogwarts.</h2>
+  <p class="hp-sub">Mileo's Simulate feature tests any idea against real customer data — using their actual words. We don't have your transcripts yet, so we loaded <em>Hogwarts</em> instead.</p>
+
+  <div class="hp-presets">
+    <button class="hp-preset" onclick="hpLoad('veggie',this)">🥦 Change Hogwarts menu to vegetarian</button>
+    <button class="hp-preset" onclick="hpLoad('quidditch',this)">🏆 Who's going to win Quidditch this year?</button>
+    <button class="hp-preset" onclick="hpLoad('online',this)">💻 Switch all classes to online learning</button>
+    <button class="hp-preset" onclick="hpLoad('wifi',this)">📶 Add WiFi to the castle</button>
+  </div>
+  <div class="hp-input-row">
+    <input class="hp-input" id="hp-input" placeholder="Ask Hogwarts anything... e.g. 'Should we add a new sport?'" />
+    <button class="hp-run" id="hp-run" onclick="hpRun()">▶ Simulate</button>
+  </div>
+  <div class="hp-grid" id="hp-grid"></div>
+  <div class="hp-summary" id="hp-summary"></div>
+</section>
+
+<!-- Coming Next -->
+<section class="coming-next">
+  <div class="cn-header">
+    <div class="cn-title">What's coming next</div>
+    <div class="cn-sub">Features in active development and on the roadmap</div>
+  </div>
+  <div class="cn-grid">
+    <div class="cn-item">
+      <div class="cn-status dev">In development</div>
+      <div class="cn-name">CRM Auto-Update</div>
+      <p class="cn-desc">After every meeting, Mileo updates your CRM fields automatically. No manual entry. Every field updated, every time.</p>
+    </div>
+    <div class="cn-item">
+      <div class="cn-status planned">Planned</div>
+      <div class="cn-name">External Signals</div>
+      <p class="cn-desc">Every morning, Mileo pulls LinkedIn updates, company news, and website changes for your accounts — so context is ready before your next call.</p>
+    </div>
+    <div class="cn-item">
+      <div class="cn-status planned">Planned</div>
+      <div class="cn-name">Sentiment Trends</div>
+      <p class="cn-desc">Track how each account's mood shifts across meetings. See risk building before it becomes a renewal conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Knowledge Flow Diagram -->
+<section class="knowledge-flow" id="knowledge-flow">
+
+  <!-- Top: header + hub side by side -->
+  <div class="kf-top">
+    <div class="kf-top-left">
+      <div class="section-label">The Bigger Picture</div>
+      <h2 class="section-title">Your CSM knows<br>everything. Now<br><em>so does everyone.</em></h2>
+      <p class="section-body">Every customer conversation becomes structured intelligence — routed to the teams that need it most.</p>
+    </div>
+    <div class="kf-top-right">
+      <div class="kf-hub">
+        <div class="kf-hub-eyebrow">One meeting feeds every team</div>
+        <div class="kf-hub-logo">mileo</div>
+        <div class="kf-hub-tag">Relationship Intelligence Layer</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom: 4 team cards full width -->
+  <div class="kf-teams">
+    <div class="kf-team-card">
+      <div class="kf-team-accent" style="background:var(--teal);"></div>
+      <div class="kf-team-name">Customer Success</div>
+      <div class="kf-team-q">Signals, open loops, and meeting intelligence — before, during, and after every call.</div>
+    </div>
+    <div class="kf-team-card">
+      <div class="kf-team-accent" style="background:#B794F4;"></div>
+      <div class="kf-team-name">Product</div>
+      <div class="kf-team-q">Feature requests ranked by how many customers mentioned them — with exact quotes as evidence.</div>
+    </div>
+    <div class="kf-team-card">
+      <div class="kf-team-accent" style="background:var(--coral);"></div>
+      <div class="kf-team-name">Marketing</div>
+      <div class="kf-team-q">The exact phrases customers use — "too manual", "the human factor" — ready for your copy.</div>
+    </div>
+    <div class="kf-team-card" style="border-right:none;">
+      <div class="kf-team-accent" style="background:var(--amber);"></div>
+      <div class="kf-team-name">Sales</div>
+      <div class="kf-team-q">ICP signals, expansion patterns, and objection playbooks built from real conversations.</div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- Design Partner -->
+<section class="early-access-section" id="early-access">
+  <div class="early-access-header">
+    <div class="section-label" style="justify-content:center;margin-bottom:16px;">Early Access</div>
+    <h2 class="section-title" style="text-align:center;margin:0 auto 20px;max-width:600px;">
+      We're building Mileo<br>with a small group of <em>CS teams.</em>
+    </h2>
+    <p style="font-size:17px;color:var(--gray);font-weight:300;text-align:center;max-width:520px;margin:0 auto;line-height:1.7;">Mileo is in active development. Our early partners help shape the product — and get access as we build.</p>
+  </div>
+  <div class="early-access-grid" style="grid-template-columns:1fr;max-width:580px;margin:0 auto;">
+    <div class="ea-col" style="background:var(--navy);">
+      <div class="ea-tier" style="color:var(--teal)"><span class="ea-tier-dot" style="background:var(--teal)"></span> CS Team or Leader</div>
+      <div class="ea-title" style="color:var(--cream);">Become a design partner</div>
+      <p class="ea-desc" style="color:#5A6070;">If you lead a customer success team and want to be involved in shaping what Mileo becomes — we want to work with you directly.</p>
+      <div class="ea-divider" style="background:rgba(255,255,255,0.15)"></div>
+      <div class="ea-detail" style="color:#8A9AAA;border-bottom-color:rgba(255,255,255,0.08)"><span class="ea-detail-dot">◆</span> Direct access to the founding team</div>
+      <div class="ea-detail" style="color:#8A9AAA;border-bottom-color:rgba(255,255,255,0.08)"><span class="ea-detail-dot">◆</span> Product built around your team's real workflow</div>
+      <div class="ea-detail" style="color:#8A9AAA;border-bottom-color:rgba(255,255,255,0.08)"><span class="ea-detail-dot">◆</span> Free during the design partner phase</div>
+      <a class="ea-cta" href="#" style="border-color:var(--teal);background:transparent;color:var(--teal);box-shadow:4px 4px 0 var(--teal);">Become a design partner →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="14,2 26,9 26,21 14,28 2,21 2,9" fill="#8BC34A"/>
+        <polygon points="14,2 26,9 14,16 2,9" fill="#AED65A"/>
+        <polygon points="14,16 26,9 26,21 14,28" fill="#6B9E2A"/>
+        <polygon points="14,16 2,9 2,21 14,28" fill="#7CB342"/>
+      </svg>
+      mileo
+    </div>
+    <p class="footer-tagline">The <em>human intelligence layer</em> your CRM was always missing.</p>
+    <p class="footer-note">mileo.co</p>
+  </div>
+  <div class="footer-right">
+    <div>
+      <div class="footer-cta-big">Ready to stop<br>losing context? <em>Let's talk.</em></div>
+      <a class="btn-hero btn-hero-teal" href="#early-access" style="display:inline-flex">◆ Get early access</a>
+    </div>
+    <div class="footer-bottom">© 2026 Mileo · mileo.co</div>
+  </div>
+</footer>
+
+<script>
+/* ══ HOGWARTS SIMULATE ══ */
+const HP_DATA = {
+  veggie: {
+    text: "Change Hogwarts menu to vegetarian",
+    sum: { t: "Split verdict — but more open than you'd think", b: "<strong>Hermione would champion it, Ron would riot.</strong> The key insight: most students would try it, but you need a transition plan. Don't remove shepherd's pie cold turkey. Pilot it on Thursdays first." },
+    r: {
+      harry:    { s:'cautious',  st:'Cautious',     q:"Honestly? I'd try it. Though I'm more worried about Ron's reaction than my own.", concern:"Will the portions still be enormous?",           pct:61, pc:'#F4A227' },
+      hermione: { s:'supportive',st:'Supportive',   q:"About time. The environmental footprint of the current menu is well-documented in Hogwarts: A History — appendix seven.", concern:"Will it actually be nutritionally balanced, or just chips?", pct:88, pc:'#00B4A2' },
+      ron:      { s:'skeptical', st:'Skeptical',    q:"No shepherd's pie?! This is worse than Umbridge. I can't revise on carrot sticks.", concern:"Does 'vegetarian' include fish? Because I need to know RIGHT NOW.", pct:14, pc:'#FF4D6D' },
+      draco:    { s:'contemptuous',st:'Contemptuous',q:"My family has donated the finest cuts to this school for generations. A vegetarian menu is an insult to our contribution.", concern:"Will Slytherin table be exempt? We have standards.", pct:9,  pc:'#C4A0E8' },
+    }
+  },
+  quidditch: {
+    text: "Who's going to win Quidditch this year?",
+    sum: { t: "Gryffindor is the crowd favourite — but data says Ravenclaw", b: "<strong>Confidence is high across the board, but for different reasons.</strong> Harry and Ron are emotionally certain. Hermione has the stats. Draco has new equipment. Classic case where conviction and evidence point in different directions." },
+    r: {
+      harry:    { s:'excited',   st:'Excited',      q:"Gryffindor. Obviously. I've beaten Malfoy four times. Unless someone illegally modifies the brooms again.", concern:"Weather conditions on match day. The dementors last time were a problem.", pct:94, pc:'#38A169' },
+      hermione: { s:'cautious',  st:'Analytical',   q:"Based on last season's statistics, Gryffindor has a 74% win probability. But Ravenclaw is statistically underestimated every single year.", concern:"We need better data on Slytherin's new seeker. I've requested the records.", pct:66, pc:'#F4A227' },
+      ron:      { s:'excited',   st:'Excited',      q:"GRYFFINDOR. End of discussion. Anyone who says otherwise can fight me. Chudley Cannons energy all the way.", concern:"George and Fred need to stop messing about in practice.", pct:99, pc:'#38A169' },
+      draco:    { s:'cautious',  st:'Confident',    q:"Father purchased seven Nimbus 2001s for the entire Slytherin team. Quality equipment is the deciding factor, not talent.", concern:"Potter always gets lucky at the worst moments. It's statistically improbable.", pct:72, pc:'#F4A227' },
+    }
+  },
+  online: {
+    text: "Switch all Hogwarts classes to online learning",
+    sum: { t: "Near-universal rejection — with one enthusiastic outlier", b: "<strong>Ron is the only fan.</strong> The rest of the school sees practical and safety problems: you can't brew Polyjuice Potion over Zoom. The insight: digital tools work as supplements, not replacements. Hybrid is the path forward." },
+    r: {
+      harry:    { s:'skeptical', st:'Skeptical',    q:"I'd miss the dungeons. Actually — no I wouldn't. But how do you practice a Patronus Charm through a screen?", concern:"Defense Against the Dark Arts requires in-person practice. Lives depend on it.", pct:33, pc:'#FF4D6D' },
+      hermione: { s:'skeptical', st:'Opposed',      q:"Potions, Transfiguration, and Care of Magical Creatures all require direct supervision. This is a health and safety issue, not a preference.", concern:"Accidental magic incidents would triple in unsupervised home environments.", pct:18, pc:'#FF4D6D' },
+      ron:      { s:'excited',   st:'Excited',      q:"Yes! I can eat breakfast AND technically be in class. Best idea Dumbledore never had.", concern:"Mum would definitely sit next to me the whole time. That's a dealbreaker.", pct:91, pc:'#38A169' },
+      draco:    { s:'contemptuous',st:'Opposed',    q:"Hogwarts is a centuries-old institution of prestige. Remote learning is what lesser schools do when they can't afford the facilities.", concern:"The Manor's WiFi is excellent, but this is beneath us.", pct:11, pc:'#C4A0E8' },
+    }
+  },
+  wifi: {
+    text: "Add WiFi to the castle",
+    sum: { t: "Strong majority in favour — unexpected alignment", b: "<strong>Even Draco is on board</strong>, which tells you something. The insight: universal convenience beats house rivalry. One caveat — magical interference with electronic devices is a real technical constraint. Pilot in the library first." },
+    r: {
+      harry:    { s:'excited',   st:'Excited',      q:"Finally. I've been trying to Google 'how to defeat dark wizards' for six years and had to use the library every single time.", concern:"Will it work near the Room of Requirement? Inconsistent magic field up there.", pct:87, pc:'#38A169' },
+      hermione: { s:'supportive',st:'Supportive',   q:"Access to current research databases would meaningfully improve academic outcomes. The library collection is good but not updated since 1987.", concern:"Students will use it during class. We need a clear usage policy from day one.", pct:79, pc:'#00B4A2' },
+      ron:      { s:'excited',   st:'Excited',      q:"I can finally stream Quidditch matches live instead of waiting for the Prophet. This changes everything.", concern:"Fred and George will absolutely do something terrible with it.", pct:96, pc:'#38A169' },
+      draco:    { s:'cautious',  st:'Cautious',     q:"I suppose even Hogwarts has to modernise eventually. I'd prefer it were named the Malfoy WiFi Network, given the donation history.", concern:"Security. Can Gryffindors access the Slytherin common room network? Unacceptable.", pct:68, pc:'#F4A227' },
+    }
+  }
+};
+
+const HP_CHARS = {
+  harry:    { name:'Harry Potter',     house:'Gryffindor', emoji:'⚡' },
+  hermione: { name:'Hermione Granger', house:'Gryffindor', emoji:'📚' },
+  ron:      { name:'Ron Weasley',      house:'Gryffindor', emoji:'♟️' },
+  draco:    { name:'Draco Malfoy',     house:'Slytherin',  emoji:'🐍' },
+};
+const HP_SENT_CLASS = { cautious:'hps-cautious', supportive:'hps-supportive', excited:'hps-excited', skeptical:'hps-skeptical', contemptuous:'hps-contemptuous' };
+
+let _hpKey = null;
+
+function hpLoad(key, el) {
+  _hpKey = key;
+  document.getElementById('hp-input').value = HP_DATA[key].text;
+  document.querySelectorAll('.hp-preset').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+}
+
+function hpRun() {
+  const text = document.getElementById('hp-input').value.trim();
+  if (!text) { document.getElementById('hp-input').focus(); return; }
+  const btn = document.getElementById('hp-run');
+  btn.textContent = '⏳ Asking Hogwarts…'; btn.classList.add('loading');
+  const grid = document.getElementById('hp-grid');
+  const sum  = document.getElementById('hp-summary');
+  sum.style.display = 'none';
+  const chars = ['harry','hermione','ron','draco'];
+  grid.innerHTML = '';
+  chars.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'hp-card shimmer'; d.id = 'hpc-'+c;
+    grid.appendChild(d);
+  });
+  const data = (_hpKey && HP_DATA[_hpKey]) ? HP_DATA[_hpKey].r : null;
+  chars.forEach((c, i) => {
+    setTimeout(() => {
+      const card = document.getElementById('hpc-'+c); if (!card) return;
+      const r = data ? data[c] : { s:'cautious', st:'Cautious', q:'Interesting question. I would need to think about it more.', concern:'Need more context.', pct:50, pc:'#F4A227' };
+      const ch = HP_CHARS[c];
+      card.classList.remove('shimmer');
+      card.innerHTML = `
+        <div class="hp-card-top">
+          <div class="hp-av">${ch.emoji}</div>
+          <div style="flex:1"><div class="hp-char-name">${ch.name}</div><div class="hp-char-house">${ch.house}</div></div>
+          <div class="hp-sentiment ${HP_SENT_CLASS[r.s]||'hps-cautious'}">${r.st}</div>
+        </div>
+        <div class="hp-card-body">
+          <div class="hp-quote">"${r.q}"</div>
+          <div class="hp-concern-lbl">Key concern</div>
+          <div class="hp-concern">${r.concern}</div>
+        </div>`;
+    }, 300 + i * 600);
+  });
+  setTimeout(() => {
+    btn.textContent = '▶ Simulate'; btn.classList.remove('loading');
+    const d = (_hpKey && HP_DATA[_hpKey]) ? HP_DATA[_hpKey] : null;
+    if (d && d.sum) {
+      sum.innerHTML = `<div class="hp-sum-lbl">Mileo's read</div><div class="hp-sum-title">${d.sum.t}</div><div class="hp-sum-body">${d.sum.b}</div>`;
+      sum.style.display = 'block';
+    }
+  }, 300 + 4 * 600 + 500);
+}
+</script>
+</body>
 </html>
