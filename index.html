@@ -1233,6 +1233,276 @@
     50% { opacity: 0; }
   }
 
+  @media (max-width: 800px) {
+    nav {
+      position: relative;
+      height: auto;
+      min-height: 56px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 18px;
+    }
+
+    .nav-links {
+      order: 3;
+      width: 100%;
+      border: 2px solid var(--ink);
+    }
+
+    .nav-links li {
+      flex: 1;
+    }
+
+    .nav-links a {
+      justify-content: center;
+      padding: 0 10px;
+      height: 42px;
+      text-align: center;
+    }
+
+    .nav-actions {
+      margin-left: auto;
+    }
+
+    .btn-primary {
+      padding: 8px 12px;
+    }
+
+    .ann-bar,
+    .logos,
+    .hp-section,
+    .coming-next,
+    .big-quote,
+    .early-access-header {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .hero,
+    .what-is,
+    .kf-top,
+    .early-access-grid,
+    .persona-section,
+    footer {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      min-height: 0;
+    }
+
+    .hero-left,
+    .what-left,
+    .kf-top-left,
+    .footer-left,
+    .footer-right,
+    .ea-col,
+    .persona-card {
+      padding: 48px 24px;
+      border-right: none;
+    }
+
+    .hero-left,
+    .what-left,
+    .kf-top-left,
+    .footer-left,
+    .persona-card,
+    .ea-col {
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .hero-right {
+      min-height: 520px;
+      padding: 36px 24px;
+    }
+
+    .demo-window {
+      width: min(100%, 420px);
+      box-shadow: 5px 5px 0 var(--ink);
+      transform: none;
+    }
+
+    .demo-window:hover {
+      transform: none;
+    }
+
+    .demo-body {
+      padding: 18px;
+    }
+
+    .demo-row,
+    .demo-suggestion {
+      align-items: flex-start;
+    }
+
+    .demo-suggestion {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .logos {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .logos-label {
+      white-space: normal;
+    }
+
+    .three-cols {
+      grid-template-columns: 1fr;
+    }
+
+    .col-card {
+      padding: 48px 24px;
+      border-right: none;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .col-card:last-child {
+      border-bottom: none;
+    }
+
+    .what-is {
+      min-height: 0;
+    }
+
+    .what-right {
+      grid-template-rows: none;
+    }
+
+    .feature-box {
+      padding: 28px 24px;
+    }
+
+    .hp-input-row {
+      flex-direction: column;
+    }
+
+    .hp-presets {
+      flex-direction: column;
+    }
+
+    .hp-preset {
+      width: 100%;
+      text-align: left;
+    }
+
+    .hp-run,
+    .hp-input {
+      width: 100%;
+    }
+
+    .hp-grid,
+    .cn-grid,
+    .kf-teams {
+      grid-template-columns: 1fr;
+    }
+
+    .cn-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .cn-item,
+    .kf-team-card {
+      border-right: none;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .cn-item:last-child,
+    .kf-team-card:last-child {
+      border-bottom: none;
+    }
+
+    .kf-top-right {
+      padding: 56px 24px;
+    }
+
+    .kf-hub-logo {
+      font-size: 56px;
+    }
+
+    .ea-col:last-child,
+    .persona-card:last-child,
+    .footer-left {
+      border-bottom: none;
+    }
+
+    .footer-right {
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    nav {
+      align-items: stretch;
+    }
+
+    .nav-actions,
+    .nav-actions .btn-primary {
+      width: 100%;
+    }
+
+    .nav-actions .btn-primary {
+      text-align: center;
+    }
+
+    .nav-links {
+      flex-direction: column;
+    }
+
+    .nav-links li {
+      border-right: none;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-headline {
+      font-size: 46px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-title {
+      font-size: 34px;
+    }
+
+    .hero-ctas,
+    .btn-hero {
+      width: 100%;
+    }
+
+    .btn-hero {
+      justify-content: center;
+    }
+
+    .hero-right {
+      min-height: 0;
+    }
+
+    .demo-row {
+      flex-direction: column;
+    }
+
+    .hp-section,
+    .coming-next,
+    .big-quote {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+
+    .cn-grid {
+      border-left: 2px solid var(--ink);
+      border-right: 2px solid var(--ink);
+    }
+  }
+
 </style>
 </head>
 <body>
