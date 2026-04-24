@@ -1,14 +1,145 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=mailto:support@mileo.co">
-    <title>Redirecting to support...</title>
-    <script type="text/javascript">
-      window.location.href = "mailto:support@mileo.co";
-    </script>
-  </head>
-  <body>
-    <p>If you are not redirected, <a href="mailto:support@mileo.co">click here</a>.</p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mileo Support</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink:   #1A1410;
+    --teal:  #00B4A2;
+    --coral: #FF4D6D;
+    --amber: #F4A227;
+    --mint:  #3DD6AC;
+    --navy:  #0D1B2A;
+    --gray:  #8A8070;
+  }
+  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    padding-bottom: 64px;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 32px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 48px;
+  }
+  
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+  
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    border-bottom: 1.5px solid rgba(26,20,16,0.1);
+    padding-bottom: 12px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+  
+  p { margin-bottom: 16px; color: #3A3430; font-size: 18px; }
+  
+  ol, ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  
+  li {
+    margin-bottom: 12px;
+    color: #3A3430;
+    font-size: 18px;
+  }
+  
+  a {
+    color: var(--teal);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--ink);
+  }
+  
+  .highlight-box {
+    background: rgba(0, 180, 162, 0.1);
+    border-left: 4px solid var(--teal);
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+  }
+
+  .nav-back {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-back:hover {
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="nav-back">← Back to Home</a>
+    
+    <div class="header">
+      <h1>Mileo Support</h1>
+    </div>
+
+    <section id="support">
+      If you need help or have any questions or concerns, please email us at <a href="mailto:support@mileo.co">support@mileo.co</a>.
+      We will get back to you in one to three business days.
+    </section>
+  </div>
+</body>
 </html>
